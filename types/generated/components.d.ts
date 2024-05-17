@@ -509,6 +509,27 @@ export interface ComponentsImageSection extends Schema.Component {
   };
 }
 
+export interface ComponentsNewsletterForm extends Schema.Component {
+  collectionName: 'components_components_newsletter_forms';
+  info: {
+    displayName: 'NewsletterForm';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Inscrivez-vous \u00E0 notre newsletter ! \u2709\uFE0F'>;
+    description: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<"Recevez 10% de remise sur votre premi\u00E8re commande d'accessoires et tenez-vous \u00E0 l'aff\u00FBt d\u00E8s qu'un nouveau bolide d\u00E9barque dans notre ar\u00E8ne :)">;
+    button: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<"Je m'inscris">;
+    placeholder: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Votre email'>;
+  };
+}
+
 export interface ComponentsPricingCard extends Schema.Component {
   collectionName: 'components_components_pricing_cards';
   info: {
@@ -604,6 +625,7 @@ declare module '@strapi/types' {
       'components.button': ComponentsButton;
       'components.card': ComponentsCard;
       'components.image-section': ComponentsImageSection;
+      'components.newsletter-form': ComponentsNewsletterForm;
       'components.pricing-card': ComponentsPricingCard;
       'components.square-block': ComponentsSquareBlock;
       'components.title-description-button': ComponentsTitleDescriptionButton;

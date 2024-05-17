@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_components_newsletter_forms",
+  "info": {
+    "displayName": "NewsletterForm"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Inscrivez-vous à notre newsletter ! ✉️",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "default": "Recevez 10% de remise sur votre première commande d'accessoires et tenez-vous à l'affût dès qu'un nouveau bolide débarque dans notre arène :)",
+      "required": true
+    },
+    "button": {
+      "type": "string",
+      "required": true,
+      "default": "Je m'inscris"
+    },
+    "placeholder": {
+      "type": "string",
+      "required": true,
+      "default": "Votre email"
+    }
+  }
+}

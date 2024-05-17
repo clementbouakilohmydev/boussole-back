@@ -1120,6 +1120,13 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       'oneToMany',
       'api::message-banner.message-banner'
     >;
+    newsletter: Attribute.Component<'components.newsletter-form'> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

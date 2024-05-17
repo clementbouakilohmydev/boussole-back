@@ -90,6 +90,18 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::message-banner.message-banner"
+    },
+    "newsletter": {
+      "displayName": "NewsletterForm",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.newsletter-form",
+      "required": true
     }
   }
 }
