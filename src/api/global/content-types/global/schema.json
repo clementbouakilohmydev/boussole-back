@@ -1,0 +1,95 @@
+{
+  "kind": "singleType",
+  "collectionName": "globals",
+  "info": {
+    "singularName": "global",
+    "pluralName": "globals",
+    "displayName": "Global",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "instragram": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "https://www.instagram.com/projetboussole/",
+      "required": true
+    },
+    "facebook": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "https://www.facebook.com/ProjetBoussole",
+      "required": true
+    },
+    "linkedin": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "https://www.linkedin.com/company/projet-boussole/",
+      "required": true
+    },
+    "address": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "7 rue foucault, Clichy (Métro L13, Mairie de Clichy)",
+      "required": true
+    },
+    "phoneNumber": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "+33 1 47 90 14 03",
+      "required": true
+    },
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "default": "support@projetboussole.fr"
+    },
+    "copyright": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "Copyright © Boussole 2024",
+      "required": true
+    },
+    "message_banners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::message-banner.message-banner"
+    }
+  }
+}

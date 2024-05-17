@@ -1042,6 +1042,155 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
   };
 }
 
+export interface ApiGlobalGlobal extends Schema.SingleType {
+  collectionName: 'globals';
+  info: {
+    singularName: 'global';
+    pluralName: 'globals';
+    displayName: 'Global';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    instragram: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'https://www.instagram.com/projetboussole/'>;
+    facebook: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'https://www.facebook.com/ProjetBoussole'>;
+    linkedin: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'https://www.linkedin.com/company/projet-boussole/'>;
+    address: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'7 rue foucault, Clichy (M\u00E9tro L13, Mairie de Clichy)'>;
+    phoneNumber: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'+33 1 47 90 14 03'>;
+    email: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'support@projetboussole.fr'>;
+    copyright: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'Copyright \u00A9 Boussole 2024'>;
+    message_banners: Attribute.Relation<
+      'api::global.global',
+      'oneToMany',
+      'api::message-banner.message-banner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::global.global',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::global.global',
+      'oneToMany',
+      'api::global.global'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiMessageBannerMessageBanner extends Schema.CollectionType {
+  collectionName: 'message_banners';
+  info: {
+    singularName: 'message-banner';
+    pluralName: 'message-banners';
+    displayName: 'MessageBanner';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    label: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::message-banner.message-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::message-banner.message-banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::message-banner.message-banner',
+      'oneToMany',
+      'api::message-banner.message-banner'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -1242,6 +1391,8 @@ declare module '@strapi/types' {
       'api::benefit.benefit': ApiBenefitBenefit;
       'api::control-point.control-point': ApiControlPointControlPoint;
       'api::employee.employee': ApiEmployeeEmployee;
+      'api::global.global': ApiGlobalGlobal;
+      'api::message-banner.message-banner': ApiMessageBannerMessageBanner;
       'api::page.page': ApiPagePage;
       'api::partner.partner': ApiPartnerPartner;
       'api::pricing.pricing': ApiPricingPricing;
