@@ -1197,6 +1197,7 @@ export interface ApiPagePage extends Schema.CollectionType {
     singularName: 'page';
     pluralName: 'pages';
     displayName: 'Page';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1208,6 +1209,13 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
   attributes: {
     content: Attribute.DynamicZone<['blocks.partners-section']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slug: Attribute.UID &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
