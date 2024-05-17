@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_blocks_rich_text_sections",
+  "info": {
+    "displayName": "RichTextSection"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  }
+}

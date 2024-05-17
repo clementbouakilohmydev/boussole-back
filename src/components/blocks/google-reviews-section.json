@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_google_reviews_sections",
+  "info": {
+    "displayName": "GoogleReviewsSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Psst, on est noté 4,9/5 sur Google !"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    }
+  }
+}

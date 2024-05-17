@@ -1,0 +1,39 @@
+{
+  "collectionName": "components_blocks_control_points_sections",
+  "info": {
+    "displayName": "ControlPointsSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Reconditionné et testé sur 30 points de contrôles par François",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "default": "Chez Boussole, chaque vélo est minutieusement scruté par nos mécaniciens 🧐Pas moins de 30 points de contrôle doivent être passés avec succès pour qu’un vélo sorte de notre atelier pour de nouvelles aventures !"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    },
+    "controlDescription": {
+      "type": "text",
+      "default": "Mécanicien précis portant une attention aux détails qui font la diff, François est un véritable maestro de la clé à molette. Bercé par les beats envoûtants de la web radio anglaise NTS, il s'attache à reconditionner tous type de vélos pour les remettre en circulation et leur faire vivre de nouvelles aventures à vos côtés.",
+      "required": true
+    },
+    "control_points": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::control-point.control-point"
+    }
+  }
+}

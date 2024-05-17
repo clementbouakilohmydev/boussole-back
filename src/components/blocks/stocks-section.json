@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_stocks_sections",
+  "info": {
+    "displayName": "StocksSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Pssst, vous n’avez pas trouvé le vélo de vos rêves ?",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "default": "Découvrez le stock de l'atelier ! On vous envoie un lien par email vers nos vélos (presque) reconditionnés disponibles en pré-commande ! :)",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    }
+  }
+}

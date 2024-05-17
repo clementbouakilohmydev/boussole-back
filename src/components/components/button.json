@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_common_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "arrowRight",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "withArrow": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "page": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::page.page"
+    }
+  }
+}

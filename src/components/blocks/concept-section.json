@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_concept_sections",
+  "info": {
+    "displayName": "ConceptSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Changez le monde, un coup de pédale à la fois"
+    },
+    "description": {
+      "type": "text",
+      "default": "Lorem ipsum dolor sit amet consectetur. Nunc sed senectus arcu lectus potenti. Sed et consequat pellentesque lacus. In ipsum pellentesque enim varius viverra. Maecenas tortor ac enim vestibulum in. Penatibus faucibus hac in porttitor ultrices in dui nibh.",
+      "required": true
+    },
+    "cards": {
+      "displayName": "TitleDescriptionImage",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.title-description-image"
+    }
+  }
+}

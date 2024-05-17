@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_components_title_description_images",
+  "info": {
+    "displayName": "TitleDescriptionImage",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "imageShopifyUrl": {
+      "type": "string"
+    }
+  }
+}

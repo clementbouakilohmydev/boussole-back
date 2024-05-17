@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_benefits_sections",
+  "info": {
+    "displayName": "BenefitsSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "benefits": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::benefit.benefit"
+    }
+  }
+}

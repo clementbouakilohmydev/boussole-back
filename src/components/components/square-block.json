@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_components_square_blocks",
+  "info": {
+    "displayName": "SquareBlock",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "description": {
+      "type": "text"
+    },
+    "emoji": {
+      "type": "string"
+    },
+    "shopifyImageUrl": {
+      "type": "string"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    }
+  }
+}

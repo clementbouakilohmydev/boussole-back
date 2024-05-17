@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_blocks_numbered_cards_sections",
+  "info": {
+    "displayName": "NumberedCardsSection",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Boussole invente le magasin du vélo du futur : plus durable, plus moderne",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "default": "Depuis 2020, on parle tous les jours avec vous, cyclistes du quotidien, et chaque discussion renforce notre vision : vous apporter la meilleure offre pour vous aider à vous épanouir en vélo."
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    },
+    "cards": {
+      "displayName": "Card",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.card",
+      "required": true,
+      "min": 2
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_pricing_sections",
+  "info": {
+    "displayName": "PricingSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Des tarifs qui ne font pas grincer les pédales :)"
+    },
+    "categories": {
+      "displayName": "PricingCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.pricing-card"
+    }
+  }
+}

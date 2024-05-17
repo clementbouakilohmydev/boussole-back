@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_blocks_blue_header_sections",
+  "info": {
+    "displayName": "BlueHeaderSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Réparez votre vélo",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "default": "Besoin d’un coup de pouce pour remettre en selle votre fidèle destrier à deux roues ? Électrique, classique, peu importe le type et l’état de votre vélo, faites le réparer en 48h par nos mécaniciens les plus qualis :)"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section",
+      "required": true
+    },
+    "sticker": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    }
+  }
+}

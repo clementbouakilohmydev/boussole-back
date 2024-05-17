@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_squares_cloud_sections",
+  "info": {
+    "displayName": "SquaresCloudSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "squares": {
+      "displayName": "SquareBlock",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.square-block",
+      "required": true,
+      "min": 2,
+      "max": 5
+    }
+  }
+}

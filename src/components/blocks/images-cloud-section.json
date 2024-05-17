@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_images_cloud_sections",
+  "info": {
+    "displayName": "ImagesCloudSection"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.image-section",
+      "min": 4,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "default": "Ils s’aiment à nouveau",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "default": "Quand l'amour pour son vélo renaît de ses cendres... Nos clients chouchoutent leurs vélos et nous en sommes témoins !"
+    }
+  }
+}

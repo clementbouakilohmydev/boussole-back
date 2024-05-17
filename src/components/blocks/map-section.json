@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_map_sections",
+  "info": {
+    "displayName": "MapSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Fatigués de crever ? On est par ici :)",
+      "required": true
+    }
+  }
+}

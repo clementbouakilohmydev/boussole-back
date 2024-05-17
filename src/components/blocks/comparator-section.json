@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_blocks_comparator_sections",
+  "info": {
+    "displayName": "ComparatorSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Vélo reconditionné par Boussole, d’occasion ou neuf : quelle différence ?",
+      "required": true
+    }
+  }
+}

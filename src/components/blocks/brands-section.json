@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_brands_sections",
+  "info": {
+    "displayName": "BrandsSection",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Vos marques préférées sont sur Boussole",
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    }
+  }
+}

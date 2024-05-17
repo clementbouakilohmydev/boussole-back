@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_common_title_description_buttons",
+  "info": {
+    "displayName": "TitleDescriptionButton",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Vendez votre vélo !",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true,
+      "default": "Parce que chaque vélo a une histoire à raconter et méritent une nouvelle aventure à vivre, remplissez un questionnaire en 5 minutes et offrez à votre vélo bien-aimé une chance de briller à nouveau !"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button",
+      "required": true
+    }
+  }
+}

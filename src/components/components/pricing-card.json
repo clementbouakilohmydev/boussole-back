@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_components_pricing_cards",
+  "info": {
+    "displayName": "PricingCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    },
+    "pricing": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pricing.pricing"
+    }
+  }
+}

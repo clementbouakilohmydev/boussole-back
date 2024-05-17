@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_blocks_categories_sections",
+  "info": {
+    "displayName": "CategoriesSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Nos catégories de vélo",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "default": "Des aventures urbaines aux escapades tout-terrain, chez Boussole, on tient à proposer des vélos classiques comme des vélos électriques reconditionnés. Notre objectif : trouver le vélo parfait pour vous !"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    }
+  }
+}

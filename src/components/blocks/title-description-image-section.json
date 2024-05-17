@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_title_description_image_sections",
+  "info": {
+    "displayName": "TitleDescriptionImageSection"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    },
+    "isReverse": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    },
+    "sticker": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.image-section"
+    }
+  }
+}

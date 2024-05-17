@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_blocks_appointment_sections",
+  "info": {
+    "displayName": "AppointmentSection",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "default": "Marre de ces freins qui couinent ?"
+    },
+    "description": {
+      "type": "text",
+      "default": "Ah, ces freins qui couinent, cette roue qui boîte et ces vitesses qui sautent, parfois ca donne envie d'aller voir ailleurs... Après une séance de réparation de votre vélo à l'atelier Boussole à Clichy, on vous promet le retour des papillons dans le ventre des premiers jours :)",
+      "required": true
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.button"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.card",
+      "required": true,
+      "min": 4
+    }
+  }
+}

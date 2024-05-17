@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_image_sections",
+  "info": {
+    "displayName": "Image",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "shopifyImageUrl": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

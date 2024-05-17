@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_three_cards_sections",
+  "info": {
+    "displayName": "ThreeCardsSection",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "displayName": "TitleDescriptionButton",
+      "type": "component",
+      "repeatable": true,
+      "component": "components.title-description-button",
+      "required": true,
+      "min": 3,
+      "max": 3
+    }
+  }
+}
