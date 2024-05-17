@@ -152,7 +152,7 @@ export interface BlocksControlPointsSection extends Schema.Component {
     controlDescription: Attribute.Text &
       Attribute.Required &
       Attribute.DefaultTo<"M\u00E9canicien pr\u00E9cis portant une attention aux d\u00E9tails qui font la diff, Fran\u00E7ois est un v\u00E9ritable maestro de la cl\u00E9 \u00E0 molette. Berc\u00E9 par les beats envo\u00FBtants de la web radio anglaise NTS, il s'attache \u00E0 reconditionner tous type de v\u00E9los pour les remettre en circulation et leur faire vivre de nouvelles aventures \u00E0 vos c\u00F4t\u00E9s.">;
-    control_points: Attribute.Relation<
+    points: Attribute.Relation<
       'blocks.control-points-section',
       'oneToMany',
       'api::control-point.control-point'
