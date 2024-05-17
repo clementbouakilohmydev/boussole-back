@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_partners_sections",
+  "info": {
+    "displayName": "PartnersSection",
+    "icon": "apps",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Ils parlent de nous",
+      "required": true
+    },
+    "partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::partner.partner"
+    }
+  }
+}
