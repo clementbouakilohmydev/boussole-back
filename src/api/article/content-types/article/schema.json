@@ -77,7 +77,6 @@
       "components": [
         "blocks.appointment-section",
         "blocks.articles-section",
-        "blocks.benefits-section",
         "blocks.blue-header-section",
         "blocks.brands-section",
         "blocks.categories-section",

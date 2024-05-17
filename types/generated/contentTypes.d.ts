@@ -847,7 +847,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       [
         'blocks.appointment-section',
         'blocks.articles-section',
-        'blocks.benefits-section',
         'blocks.blue-header-section',
         'blocks.brands-section',
         'blocks.categories-section',
@@ -1163,6 +1162,12 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
           localized: true;
         };
       }>;
+    benefits: Attribute.Component<'blocks.benefits-section'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1256,7 +1261,6 @@ export interface ApiPagePage extends Schema.CollectionType {
         'blocks.partners-section',
         'blocks.appointment-section',
         'blocks.articles-section',
-        'blocks.benefits-section',
         'blocks.blue-header-section',
         'blocks.brands-section',
         'blocks.categories-section',

@@ -102,6 +102,16 @@
       },
       "component": "components.newsletter-form",
       "required": true
+    },
+    "benefits": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "blocks.benefits-section"
     }
   }
 }
