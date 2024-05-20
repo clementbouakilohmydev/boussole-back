@@ -21,6 +21,7 @@ const collectionsQuery = `
       first: $first
     ) {
       nodes {
+        id
         title
         handle
         image {
@@ -59,7 +60,15 @@ module.exports = createCoreController("api::collection.collection", () => ({
       variables: { first: data.length, query },
     });
 
-    return { data, meta, shopify };
+    return {
+      data: data.map((c) => ({
+        ...c,
+        shopify: shopify.collections.nodes.find((n) =>
+          n.id.includes(c.attributes.shopifyID)
+        ),
+      })),
+      meta,
+    };
   },
   async findOne(ctx) {
     const response = await super.findOne(ctx);
