@@ -53,42 +53,42 @@ module.exports = createCoreController("api::page.page", () => ({
 }));
 
 const productsSliderQuery = `
-  query ProductsSliderQuery($country: CountryCode, $language: LanguageCode, $id: ID)
-      collection(id: $id) {
-        products(sortKey: CREATED, reverse: true, first: 6, filters: {available: true}) {
-          nodes {
+  query ProductsSliderQuery($country: CountryCode, $language: LanguageCode, $id: ID) {
+    collection(id: $id) {
+      products(sortKey: CREATED, reverse: true, first: 6, filters: {available: true}) {
+        nodes {
+          id
+          title
+          handle
+          vendor
+          metafields(
+            identifiers: [{namespace: "custom", key: "taille"}, {namespace: "custom", key: "annee"}]
+          ) {
+            key
+            value
+          }
+          featuredImage {
+            url
             id
-            title
-            handle
-            vendor
-            metafields(
-              identifiers: [{namespace: "custom", key: "taille"}, {namespace: "custom", key: "annee"}]
-            ) {
-              key
-              value
-            }
-            featuredImage {
+          }
+          images(first: 2) {
+            nodes {
               url
               id
             }
-            images(first: 2) {
-              nodes {
-                url
-                id
-              }
+          }
+          compareAtPriceRange {
+            maxVariantPrice {
+              amount
             }
-            compareAtPriceRange {
-              maxVariantPrice {
-                amount
-              }
-            }
-            priceRange {
-              maxVariantPrice {
-                amount
-              }
+          }
+          priceRange {
+            maxVariantPrice {
+              amount
             }
           }
         }
       }
     }
+  }
 `;
