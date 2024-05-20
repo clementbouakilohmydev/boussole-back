@@ -16,6 +16,10 @@
       "type": "component",
       "repeatable": false,
       "component": "components.image-section"
+    },
+    "categoriesIds": {
+      "type": "json",
+      "required": true
     }
   }
 }

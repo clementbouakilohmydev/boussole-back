@@ -87,6 +87,7 @@ export interface BlocksBrandsSection extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<'Vos marques pr\u00E9f\u00E9r\u00E9es sont sur Boussole'>;
     image: Attribute.Component<'components.image-section'>;
+    categoriesIds: Attribute.JSON & Attribute.Required;
   };
 }
 
