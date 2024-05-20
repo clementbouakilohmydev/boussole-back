@@ -21,9 +21,10 @@
       "repeatable": false,
       "component": "components.button"
     },
-    "categoriesIds": {
-      "type": "json",
-      "required": true
+    "collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::collection.collection"
     }
   }
 }

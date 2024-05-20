@@ -87,7 +87,11 @@ export interface BlocksBrandsSection extends Schema.Component {
       Attribute.Required &
       Attribute.DefaultTo<'Vos marques pr\u00E9f\u00E9r\u00E9es sont sur Boussole'>;
     image: Attribute.Component<'components.image-section'>;
-    categoriesIds: Attribute.JSON & Attribute.Required;
+    collections: Attribute.Relation<
+      'blocks.brands-section',
+      'oneToMany',
+      'api::collection.collection'
+    >;
   };
 }
 
@@ -105,7 +109,11 @@ export interface BlocksCategoriesSection extends Schema.Component {
     description: Attribute.Text &
       Attribute.DefaultTo<'Des aventures urbaines aux escapades tout-terrain, chez Boussole, on tient \u00E0 proposer des v\u00E9los classiques comme des v\u00E9los \u00E9lectriques reconditionn\u00E9s. Notre objectif : trouver le v\u00E9lo parfait pour vous !'>;
     button: Attribute.Component<'components.button'>;
-    categoriesIds: Attribute.JSON & Attribute.Required;
+    collections: Attribute.Relation<
+      'blocks.categories-section',
+      'oneToMany',
+      'api::collection.collection'
+    >;
   };
 }
 

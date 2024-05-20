@@ -17,9 +17,10 @@
       "repeatable": false,
       "component": "components.image-section"
     },
-    "categoriesIds": {
-      "type": "json",
-      "required": true
+    "collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::collection.collection"
     }
   }
 }
