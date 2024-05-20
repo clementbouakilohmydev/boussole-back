@@ -2,10 +2,51 @@ const { createCoreController } = require("@strapi/strapi").factories;
 const { createStorefrontApiClient } = require("@shopify/storefront-api-client");
 
 const client = createStorefrontApiClient({
-  storeDomain: "http://projet-boussole.myshopify.com",
   apiVersion: "2024-04",
+  storeDomain: "http://projet-boussole.myshopify.com",
   publicAccessToken: "963489a685f158c6a0e499c449321340",
 });
+
+const productsSliderQuery = `
+  query ProductsSliderQuery($id: ID) {
+    collection(id: $id) {
+      products(first: 10, sortKey: CREATED, reverse: true) {
+        nodes {
+          id
+          title
+          handle
+          vendor
+          metafields(
+            identifiers: [{namespace: "custom", key: "taille"}, {namespace: "custom", key: "annee"}]
+          ) {
+            key
+            value
+          }
+          featuredImage {
+            url
+            id
+          }
+          images(first: 2) {
+            nodes {
+              url
+              id
+            }
+          }
+          compareAtPriceRange {
+            maxVariantPrice {
+              amount
+            }
+          }
+          priceRange {
+            maxVariantPrice {
+              amount
+            }
+          }
+        }
+      }
+    }
+  }
+`;
 
 /**
  * @param {any} id
@@ -51,44 +92,3 @@ module.exports = createCoreController("api::page.page", () => ({
     };
   },
 }));
-
-const productsSliderQuery = `
-  query ProductsSliderQuery($country: CountryCode, $language: LanguageCode, $id: ID) {
-    collection(id: $id) {
-      products(sortKey: CREATED, reverse: true, first: 6, filters: {available: true}) {
-        nodes {
-          id
-          title
-          handle
-          vendor
-          metafields(
-            identifiers: [{namespace: "custom", key: "taille"}, {namespace: "custom", key: "annee"}]
-          ) {
-            key
-            value
-          }
-          featuredImage {
-            url
-            id
-          }
-          images(first: 2) {
-            nodes {
-              url
-              id
-            }
-          }
-          compareAtPriceRange {
-            maxVariantPrice {
-              amount
-            }
-          }
-          priceRange {
-            maxVariantPrice {
-              amount
-            }
-          }
-        }
-      }
-    }
-  }
-`;
