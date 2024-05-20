@@ -95,6 +95,7 @@ export interface BlocksCategoriesSection extends Schema.Component {
   info: {
     displayName: 'CategoriesSection';
     icon: 'apps';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -103,6 +104,7 @@ export interface BlocksCategoriesSection extends Schema.Component {
     description: Attribute.Text &
       Attribute.DefaultTo<'Des aventures urbaines aux escapades tout-terrain, chez Boussole, on tient \u00E0 proposer des v\u00E9los classiques comme des v\u00E9los \u00E9lectriques reconditionn\u00E9s. Notre objectif : trouver le v\u00E9lo parfait pour vous !'>;
     button: Attribute.Component<'components.button'>;
+    categoriesIds: Attribute.JSON & Attribute.Required;
   };
 }
 
