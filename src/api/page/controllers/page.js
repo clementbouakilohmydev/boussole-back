@@ -10,7 +10,7 @@ const client = createStorefrontApiClient({
 const productsSliderQuery = `
   query ProductsSliderQuery($id: ID) {
     collection(id: $id) {
-      products(first: 10, sortKey: CREATED, reverse: true) {
+      products(first: 6, sortKey: CREATED, reverse: true) {
         nodes {
           id
           title
