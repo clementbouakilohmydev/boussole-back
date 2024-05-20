@@ -312,6 +312,7 @@ export interface BlocksProductsSlider extends Schema.Component {
   info: {
     displayName: 'ProductsSlider';
     icon: 'arrowRight';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -320,6 +321,11 @@ export interface BlocksProductsSlider extends Schema.Component {
     description: Attribute.Text &
       Attribute.Required &
       Attribute.DefaultTo<'Des bolides fra\u00EEchement sortis de notre atelier, pr\u00EAt \u00E0 rugir \u00E0 nouveau sur le bitume, pr\u00EAts \u00E0 \u00EAtre adopter :)'>;
+    collection: Attribute.Relation<
+      'blocks.products-slider',
+      'oneToOne',
+      'api::collection.collection'
+    >;
   };
 }
 
