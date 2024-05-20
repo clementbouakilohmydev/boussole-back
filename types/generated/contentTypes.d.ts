@@ -980,15 +980,17 @@ export interface ApiCollectionCollection extends Schema.CollectionType {
     };
   };
   attributes: {
-    shopifyID: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
     name: Attribute.String &
       Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shopifyID: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
