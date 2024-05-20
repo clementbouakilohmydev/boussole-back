@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_header_faded_images",
   "info": {
-    "displayName": "HeaderFadedImages"
+    "displayName": "HeaderFadedImages",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,8 +17,11 @@
     },
     "images": {
       "type": "component",
-      "repeatable": false,
-      "component": "components.image-section"
+      "repeatable": true,
+      "component": "components.image-section",
+      "min": 4,
+      "max": 4,
+      "required": true
     }
   }
 }
