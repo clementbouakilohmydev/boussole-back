@@ -569,13 +569,14 @@ export interface ComponentsPricingCard extends Schema.Component {
   collectionName: 'components_components_pricing_cards';
   info: {
     displayName: 'PricingCard';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     image: Attribute.Component<'components.image-section'>;
-    pricing: Attribute.Relation<
+    pricings: Attribute.Relation<
       'components.pricing-card',
-      'oneToOne',
+      'oneToMany',
       'api::pricing.pricing'
     >;
   };
