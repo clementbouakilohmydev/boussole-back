@@ -11,9 +11,10 @@
       "required": true,
       "default": "Votre boussole vers une écomobilité plus durable"
     },
-    "de": {
+    "description": {
       "type": "text",
-      "default": "Un vélo qui finit à la poubelle ou au fond du garage, qui traîne sur un site d’annonce, c’est des émissions de carbone que l’on pourrait éviter. Favoriser la seconde main par rapport au neuf et redonner du peps au vélo, c’est ça notre mantra !"
+      "default": "Un vélo qui finit à la poubelle ou au fond du garage, qui traîne sur un site d’annonce, c’est des émissions de carbone que l’on pourrait éviter. Favoriser la seconde main par rapport au neuf et redonner du peps au vélo, c’est ça notre mantra !",
+      "required": true
     },
     "images": {
       "type": "component",

@@ -194,7 +194,8 @@ export interface BlocksHeaderFadedImages extends Schema.Component {
     title: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'Votre boussole vers une \u00E9comobilit\u00E9 plus durable'>;
-    de: Attribute.Text &
+    description: Attribute.Text &
+      Attribute.Required &
       Attribute.DefaultTo<'Un v\u00E9lo qui finit \u00E0 la poubelle ou au fond du garage, qui tra\u00EEne sur un site d\u2019annonce, c\u2019est des \u00E9missions de carbone que l\u2019on pourrait \u00E9viter. Favoriser la seconde main par rapport au neuf et redonner du peps au v\u00E9lo, c\u2019est \u00E7a notre mantra !'>;
     images: Attribute.Component<'components.image-section', true> &
       Attribute.Required &
