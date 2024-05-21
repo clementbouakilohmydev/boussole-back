@@ -19,7 +19,9 @@
     "cards": {
       "type": "component",
       "repeatable": true,
-      "component": "components.title-description-image"
+      "component": "components.title-description-image",
+      "min": 2,
+      "max": 3
     }
   }
 }
