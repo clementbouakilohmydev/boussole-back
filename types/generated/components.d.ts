@@ -213,12 +213,13 @@ export interface BlocksHeaderNumerotedCards extends Schema.Component {
   collectionName: 'components_blocks_header_numeroted_cards';
   info: {
     displayName: 'HeaderNumerotedCards';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'De notre atelier \u00E0 votre porte : on vous d\u00E9voile les coulisses !'>;
-    de: Attribute.Text &
+    description: Attribute.Text &
       Attribute.Required &
       Attribute.DefaultTo<"Depuis 2020, on a sauv\u00E9 des milliers de v\u00E9los de leur triste destin ! Certains auraient fini \u00E0 la casse, d'autres tra\u00EEneraient encore aujourd\u2019hui sur des sites d'annonces ou au fond d\u2019un garage. D\u00E9couvrez tout notre processus de reconditionnement qui les a transform\u00E9s en v\u00E9ritables joyaux de la route :)">;
     cards: Attribute.Component<'components.title-description-image', true>;

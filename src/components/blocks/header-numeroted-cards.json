@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_header_numeroted_cards",
   "info": {
-    "displayName": "HeaderNumerotedCards"
+    "displayName": "HeaderNumerotedCards",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,7 +11,7 @@
       "default": "De notre atelier à votre porte : on vous dévoile les coulisses !",
       "required": true
     },
-    "de": {
+    "description": {
       "type": "text",
       "default": "Depuis 2020, on a sauvé des milliers de vélos de leur triste destin ! Certains auraient fini à la casse, d'autres traîneraient encore aujourd’hui sur des sites d'annonces ou au fond d’un garage. Découvrez tout notre processus de reconditionnement qui les a transformés en véritables joyaux de la route :)",
       "required": true
