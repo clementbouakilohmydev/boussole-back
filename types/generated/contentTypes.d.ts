@@ -1086,6 +1086,7 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
     singularName: 'employee';
     pluralName: 'employees';
     displayName: 'Employee';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1123,6 +1124,14 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    color_card: Attribute.Enumeration<['bleu', 'jaune', 'rose']> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'bleu'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
