@@ -10,18 +10,18 @@
     "title": {
       "type": "string",
       "default": "Vous avez des questions, on a les réponses !",
-      "required": true
+      "required": false
     },
     "description": {
       "type": "text",
       "default": "Et oui, on lit dans votre esprit :) Les questions les plus couramment posées par nos clients, c’est par ici !",
-      "required": true
+      "required": false
     },
     "button": {
       "type": "component",
       "repeatable": false,
       "component": "components.button",
-      "required": true
+      "required": false
     },
     "questions": {
       "type": "relation",

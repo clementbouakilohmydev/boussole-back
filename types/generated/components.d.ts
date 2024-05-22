@@ -358,12 +358,10 @@ export interface BlocksQuestionsSection extends Schema.Component {
   };
   attributes: {
     title: Attribute.String &
-      Attribute.Required &
       Attribute.DefaultTo<'Vous avez des questions, on a les r\u00E9ponses !'>;
     description: Attribute.Text &
-      Attribute.Required &
       Attribute.DefaultTo<'Et oui, on lit dans votre esprit :) Les questions les plus couramment pos\u00E9es par nos clients, c\u2019est par ici !'>;
-    button: Attribute.Component<'components.button'> & Attribute.Required;
+    button: Attribute.Component<'components.button'>;
     questions: Attribute.Relation<
       'blocks.questions-section',
       'oneToMany',
