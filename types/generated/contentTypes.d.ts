@@ -1431,7 +1431,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'blocks.three-cards-section',
         'blocks.title-description-image-section',
         'blocks.video-section',
-        'components.button'
+        'components.button',
+        'components.image-section'
       ]
     > &
       Attribute.Required &
