@@ -1362,7 +1362,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'blocks.team-slider',
         'blocks.three-cards-section',
         'blocks.title-description-image-section',
-        'blocks.video-section'
+        'blocks.video-section',
+        'components.button'
       ]
     > &
       Attribute.Required &

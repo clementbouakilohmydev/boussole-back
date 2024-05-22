@@ -49,7 +49,8 @@
         "blocks.team-slider",
         "blocks.three-cards-section",
         "blocks.title-description-image-section",
-        "blocks.video-section"
+        "blocks.video-section",
+        "components.button"
       ],
       "required": true
     },

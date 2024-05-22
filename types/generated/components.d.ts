@@ -237,6 +237,7 @@ export interface BlocksImagesCloudSection extends Schema.Component {
   collectionName: 'components_blocks_images_cloud_sections';
   info: {
     displayName: 'ImagesCloudSection';
+    description: '';
   };
   attributes: {
     images: Attribute.Component<'components.image-section', true> &
@@ -244,6 +245,7 @@ export interface BlocksImagesCloudSection extends Schema.Component {
       Attribute.SetMinMax<
         {
           min: 4;
+          max: 4;
         },
         number
       >;

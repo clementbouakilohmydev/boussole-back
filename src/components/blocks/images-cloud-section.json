@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_images_cloud_sections",
   "info": {
-    "displayName": "ImagesCloudSection"
+    "displayName": "ImagesCloudSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,7 +11,8 @@
       "repeatable": true,
       "component": "components.image-section",
       "min": 4,
-      "required": true
+      "required": true,
+      "max": 4
     },
     "title": {
       "type": "string",
