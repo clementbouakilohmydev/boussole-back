@@ -870,7 +870,8 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         'blocks.team-slider',
         'blocks.three-cards-section',
         'blocks.title-description-image-section',
-        'blocks.video-section'
+        'blocks.video-section',
+        'blocks.benefits-section'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -958,6 +959,49 @@ export interface ApiBenefitBenefit extends Schema.CollectionType {
       'api::benefit.benefit',
       'oneToMany',
       'api::benefit.benefit'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiBlogBlog extends Schema.SingleType {
+  collectionName: 'blogs';
+  info: {
+    singularName: 'blog';
+    pluralName: 'blogs';
+    displayName: 'Blog';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    highlighted_article: Attribute.Relation<
+      'api::blog.blog',
+      'oneToOne',
+      'api::article.article'
+    >;
+    recommended_articles: Attribute.Relation<
+      'api::blog.blog',
+      'oneToMany',
+      'api::article.article'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::blog.blog', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::blog.blog',
+      'oneToMany',
+      'api::blog.blog'
     >;
     locale: Attribute.String;
   };
@@ -1584,6 +1628,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::benefit.benefit': ApiBenefitBenefit;
+      'api::blog.blog': ApiBlogBlog;
       'api::collection.collection': ApiCollectionCollection;
       'api::control-point.control-point': ApiControlPointControlPoint;
       'api::employee.employee': ApiEmployeeEmployee;
