@@ -103,6 +103,17 @@
         "blocks.video-section",
         "blocks.benefits-section"
       ]
+    },
+    "recommended_articles": {
+      "displayName": "RecommandedArticles",
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "blocks.recommanded-articles"
     }
   }
 }

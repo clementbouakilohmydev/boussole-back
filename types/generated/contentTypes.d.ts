@@ -879,6 +879,12 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    recommended_articles: Attribute.Component<'blocks.recommanded-articles'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -984,11 +990,6 @@ export interface ApiBlogBlog extends Schema.SingleType {
     highlighted_article: Attribute.Relation<
       'api::blog.blog',
       'oneToOne',
-      'api::article.article'
-    >;
-    recommended_articles: Attribute.Relation<
-      'api::blog.blog',
-      'oneToMany',
       'api::article.article'
     >;
     createdAt: Attribute.DateTime;

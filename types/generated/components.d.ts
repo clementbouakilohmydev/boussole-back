@@ -370,6 +370,21 @@ export interface BlocksQuestionsSection extends Schema.Component {
   };
 }
 
+export interface BlocksRecommandedArticles extends Schema.Component {
+  collectionName: 'components_blocks_recommanded_articles';
+  info: {
+    displayName: 'RecommandedArticles';
+    icon: 'archive';
+  };
+  attributes: {
+    articles: Attribute.Relation<
+      'blocks.recommanded-articles',
+      'oneToMany',
+      'api::article.article'
+    >;
+  };
+}
+
 export interface BlocksReviewsSection extends Schema.Component {
   collectionName: 'components_blocks_reviews_sections';
   info: {
@@ -650,6 +665,7 @@ declare module '@strapi/types' {
       'blocks.pricing-section': BlocksPricingSection;
       'blocks.products-slider': BlocksProductsSlider;
       'blocks.questions-section': BlocksQuestionsSection;
+      'blocks.recommanded-articles': BlocksRecommandedArticles;
       'blocks.reviews-section': BlocksReviewsSection;
       'blocks.rich-text-section': BlocksRichTextSection;
       'blocks.squares-cloud-section': BlocksSquaresCloudSection;

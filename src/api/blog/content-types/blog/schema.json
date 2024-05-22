@@ -20,11 +20,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
-    },
-    "recommended_articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
     }
   }
 }
