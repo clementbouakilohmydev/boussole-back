@@ -122,6 +122,26 @@
       "type": "string",
       "required": true,
       "default": "https://calendly.com/projet_boussole"
+    },
+    "opened_days": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Lundi au samedi",
+      "required": true
+    },
+    "opened_hours": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "9h30 à 18h30",
+      "required": true
     }
   }
 }

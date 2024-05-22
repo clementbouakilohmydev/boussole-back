@@ -1255,6 +1255,22 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         };
       }> &
       Attribute.DefaultTo<'https://calendly.com/projet_boussole'>;
+    opened_days: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Lundi au samedi'>;
+    opened_hours: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'9h30 \u00E0 18h30'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
