@@ -112,6 +112,16 @@
         }
       },
       "component": "blocks.benefits-section"
+    },
+    "appointment_url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "required": true,
+      "default": "https://calendly.com/projet_boussole"
     }
   }
 }
