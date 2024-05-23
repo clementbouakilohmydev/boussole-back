@@ -871,7 +871,8 @@ export interface ApiArticleArticle extends Schema.CollectionType {
         'blocks.three-cards-section',
         'blocks.title-description-image-section',
         'blocks.video-section',
-        'blocks.benefits-section'
+        'blocks.benefits-section',
+        'components.image-section'
       ]
     > &
       Attribute.SetPluginOptions<{
