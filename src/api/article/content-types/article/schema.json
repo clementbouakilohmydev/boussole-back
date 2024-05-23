@@ -106,7 +106,6 @@
       ]
     },
     "recommended_articles": {
-      "displayName": "RecommandedArticles",
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
