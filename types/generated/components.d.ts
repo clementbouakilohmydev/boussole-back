@@ -375,6 +375,7 @@ export interface BlocksRecommandedArticles extends Schema.Component {
   info: {
     displayName: 'RecommandedArticles';
     icon: 'archive';
+    description: '';
   };
   attributes: {
     articles: Attribute.Relation<
@@ -382,6 +383,9 @@ export interface BlocksRecommandedArticles extends Schema.Component {
       'oneToMany',
       'api::article.article'
     >;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'Articles similaires'>;
   };
 }
 
