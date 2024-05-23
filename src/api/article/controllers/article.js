@@ -62,33 +62,37 @@ module.exports = createCoreController("api::article.article", () => ({
   async find(ctx) {
     const { data } = await super.find(ctx);
 
-    const item = data[0];
+    const res = await Promise.all(
+      data.map(async (item) => {
+        const content = await Promise.all(
+          item.attributes.content.map(
+            async (
+              /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
+            ) => {
+              if (
+                section.__component === "blocks.products-slider" &&
+                section?.collection?.data?.attributes?.shopifyID
+              ) {
+                const id = section.collection.data.attributes.shopifyID;
+                const shopify = await getCollection(id);
+                return {
+                  ...section,
+                  products: shopify?.collection?.products || [],
+                };
+              }
 
-    const content = await Promise.all(
-      item.attributes.content.map(
-        async (
-          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
-        ) => {
-          if (
-            section.__component === "blocks.products-slider" &&
-            section?.collection?.data?.attributes?.shopifyID
-          ) {
-            const id = section.collection.data.attributes.shopifyID;
-            const shopify = await getCollection(id);
-            return {
-              ...section,
-              products: shopify?.collection?.products || [],
-            };
-          }
+              return section;
+            }
+          )
+        );
 
-          return section;
-        }
-      )
+        return {
+          ...item.attributes,
+          content,
+        };
+      })
     );
 
-    return {
-      ...item.attributes,
-      content,
-    };
+    return res;
   },
 }));
