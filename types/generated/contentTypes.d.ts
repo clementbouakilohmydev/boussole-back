@@ -1219,7 +1219,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     };
   };
   attributes: {
-    instragram: Attribute.String &
+    instagram: Attribute.String &
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
