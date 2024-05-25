@@ -9,6 +9,11 @@ const collectionQuery = `
       image {
         url
       }
+      products(first: 250, filters: {available: false}) {
+        edges {
+          cursor
+        }
+      }
     }
   }
 `;
@@ -26,6 +31,11 @@ const collectionsQuery = `
         handle
         image {
           url
+        }
+        products(first: 250, filters: {available: false}) {
+          edges {
+            cursor
+          }
         }
       }
     }
@@ -56,17 +66,26 @@ module.exports = createCoreController("api::collection.collection", () => ({
       )
       .join("");
 
-    const { data: shopify } = await client.request(collectionsQuery, {
+    const { data: shopifyData } = await client.request(collectionsQuery, {
       variables: { first: data.length, query },
     });
 
     return {
-      data: data.map((c) => ({
-        ...c,
-        shopify: shopify.collections.nodes.find((n) =>
+      data: data.map((c) => {
+        const shopify = shopifyData.collections.nodes.find((n) =>
           n.id.includes(c.attributes.shopifyID)
-        ),
-      })),
+        );
+        console.log({ ...shopify });
+        return {
+          ...c,
+          shopify: {
+            title: shopify?.title,
+            image: shopify?.image,
+            handle: shopify?.handle,
+            productsLength: (shopify?.products?.edges || []).length || 0,
+          },
+        };
+      }),
       meta,
     };
   },
@@ -76,7 +95,15 @@ module.exports = createCoreController("api::collection.collection", () => ({
     const { data } = await client.request(collectionQuery, {
       variables: { id },
     });
-    response.shopify = data;
-    return response;
+    console.log({ data });
+    return {
+      ...response,
+      shopify: {
+        title: data?.collection?.title,
+        image: data?.collection?.image,
+        handle: data?.collection?.handle,
+        productsLength: (data?.collection?.products?.edges || []).length || 0,
+      },
+    };
   },
 }));
