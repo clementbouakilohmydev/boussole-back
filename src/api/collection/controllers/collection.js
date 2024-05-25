@@ -75,7 +75,7 @@ module.exports = createCoreController("api::collection.collection", () => ({
         const shopify = shopifyData.collections.nodes.find((n) =>
           n.id.includes(c.attributes.shopifyID)
         );
-        console.log({ ...shopify });
+
         return {
           ...c,
           shopify: {
@@ -95,7 +95,7 @@ module.exports = createCoreController("api::collection.collection", () => ({
     const { data } = await client.request(collectionQuery, {
       variables: { id },
     });
-    console.log({ data });
+
     return {
       ...response,
       shopify: {
