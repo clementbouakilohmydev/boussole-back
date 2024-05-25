@@ -116,12 +116,17 @@ module.exports = createCoreController("api::page.page", () => ({
               section.collections.data.map(async (collection) => {
                 const id = collection?.attributes?.shopifyID;
                 const shopify = await getBrandCollection(id);
-                return { ...collection, shopify };
+                return {
+                  ...collection,
+                  productsLength: (shopify?.collection?.products?.edges || [])
+                    .length,
+                };
               })
             );
+
             return {
               ...section,
-              collections: res,
+              collections: { data: res },
             };
           }
 
