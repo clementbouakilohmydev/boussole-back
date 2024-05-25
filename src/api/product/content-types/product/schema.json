@@ -55,6 +55,47 @@
         "components.image-section",
         "components.button"
       ]
+    },
+    "appointment_section": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
+      "required": true
+    },
+    "contact_section": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "blocks",
+      "required": true
+    },
+    "recommanded_articles_label": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "default": "Pour être bien équipé de la tête aux pieds, Boussole vous recommande aussi :",
+      "required": true
+    },
+    "informations": {
+      "displayName": "informations",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "components.informations",
+      "required": true,
+      "min": 4
     }
   }
 }

@@ -563,6 +563,19 @@ export interface ComponentsImageSection extends Schema.Component {
   };
 }
 
+export interface ComponentsInformations extends Schema.Component {
+  collectionName: 'components_components_informations';
+  info: {
+    displayName: 'informations';
+    icon: 'bold';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String & Attribute.Required & Attribute.Unique;
+    content: Attribute.Blocks & Attribute.Required;
+  };
+}
+
 export interface ComponentsNewsletterForm extends Schema.Component {
   collectionName: 'components_components_newsletter_forms';
   info: {
@@ -681,6 +694,7 @@ declare module '@strapi/types' {
       'components.button': ComponentsButton;
       'components.card': ComponentsCard;
       'components.image-section': ComponentsImageSection;
+      'components.informations': ComponentsInformations;
       'components.newsletter-form': ComponentsNewsletterForm;
       'components.pricing-card': ComponentsPricingCard;
       'components.square-block': ComponentsSquareBlock;
