@@ -7,6 +7,23 @@ const client = createStorefrontApiClient({
   publicAccessToken: "963489a685f158c6a0e499c449321340",
 });
 
+const brandCollectionQuery = `
+  query CollectionQuery($id: ID) {
+    collection(id: $id) {
+      title
+      handle
+      image {
+        url
+      }
+      products(first: 250, filters: {available: true}) {
+        edges {
+          cursor
+        }
+      }
+    }
+  }
+`;
+
 const productsSliderQuery = `
   query ProductsSliderQuery($id: ID) {
     collection(id: $id) {
@@ -58,6 +75,16 @@ async function getCollection(id) {
   return data;
 }
 
+/**
+ * @param {any} id
+ */
+async function getBrandCollection(id) {
+  const { data } = await client.request(brandCollectionQuery, {
+    variables: { id: `gid://shopify/Collection/${id}` },
+  });
+  return data;
+}
+
 module.exports = createCoreController("api::page.page", () => ({
   async find(ctx) {
     const { data } = await super.find(ctx);
@@ -67,7 +94,7 @@ module.exports = createCoreController("api::page.page", () => ({
     const content = await Promise.all(
       item.attributes.content.map(
         async (
-          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
+          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; collections: any; }} */ section
         ) => {
           if (
             section.__component === "blocks.products-slider" &&
@@ -78,6 +105,23 @@ module.exports = createCoreController("api::page.page", () => ({
             return {
               ...section,
               products: shopify?.collection?.products || [],
+            };
+          }
+
+          if (
+            section.__component === "blocks.brands-section" &&
+            (section?.collections?.data || []).length > 0
+          ) {
+            const res = await Promise.all(
+              section.collections.data.map(async (collection) => {
+                const id = collection?.attributes?.shopifyID;
+                const shopify = await getBrandCollection(id);
+                return { ...collection, shopify };
+              })
+            );
+            return {
+              ...section,
+              collections: res,
             };
           }
 
