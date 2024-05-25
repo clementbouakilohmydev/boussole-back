@@ -571,7 +571,7 @@ export interface ComponentsInformations extends Schema.Component {
     description: '';
   };
   attributes: {
-    label: Attribute.String & Attribute.Required & Attribute.Unique;
+    label: Attribute.String & Attribute.Required;
     content: Attribute.Blocks & Attribute.Required;
   };
 }

@@ -63,7 +63,7 @@ module.exports = createCoreController("api::product.product", () => ({
     const response = await super.find(ctx);
 
     const content = await Promise.all(
-      response.attributes.content.map(
+      response.data.attributes.content.map(
         async (
           /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
         ) => {
@@ -85,7 +85,7 @@ module.exports = createCoreController("api::product.product", () => ({
     );
 
     return {
-      ...response.attributes,
+      ...response.data.attributes,
       content,
     };
   },
