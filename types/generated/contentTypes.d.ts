@@ -976,7 +976,7 @@ export interface ApiBlogBlog extends Schema.SingleType {
   info: {
     singularName: 'blog';
     pluralName: 'blogs';
-    displayName: 'Blog';
+    displayName: 'Page - Blog';
     description: '';
   };
   options: {
@@ -1014,7 +1014,7 @@ export interface ApiCartCart extends Schema.SingleType {
   info: {
     singularName: 'cart';
     pluralName: 'carts';
-    displayName: 'Cart';
+    displayName: 'Page - Panier';
     description: '';
   };
   options: {
@@ -1277,7 +1277,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   info: {
     singularName: 'global';
     pluralName: 'globals';
-    displayName: 'Global';
+    displayName: 'Informations g\u00E9n\u00E9rales';
     description: '';
   };
   options: {
@@ -1543,6 +1543,171 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiPageCollectionPageCollection extends Schema.SingleType {
+  collectionName: 'page_collections';
+  info: {
+    singularName: 'page-collection';
+    pluralName: 'page-collections';
+    displayName: 'Page - Collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'blocks.appointment-section',
+        'blocks.articles-section',
+        'blocks.benefits-section',
+        'blocks.blue-header-section',
+        'blocks.brands-section',
+        'blocks.categories-section',
+        'blocks.comparator-section',
+        'blocks.concept-section',
+        'blocks.control-points-section',
+        'blocks.google-reviews-section',
+        'blocks.header-faded-images',
+        'blocks.header-numeroted-cards',
+        'blocks.images-cloud-section',
+        'blocks.map-section',
+        'blocks.numbered-cards-section',
+        'blocks.partners-section',
+        'blocks.pricing-section',
+        'blocks.products-slider',
+        'blocks.questions-section',
+        'blocks.recommanded-articles',
+        'blocks.reviews-section',
+        'blocks.rich-text-section',
+        'blocks.squares-cloud-section',
+        'blocks.stocks-section',
+        'blocks.team-slider',
+        'blocks.three-cards-section',
+        'blocks.title-description-image-section',
+        'blocks.video-section',
+        'components.image-section'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-collection.page-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-collection.page-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page-collection.page-collection',
+      'oneToMany',
+      'api::page-collection.page-collection'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPageNosCollectionPageNosCollection
+  extends Schema.SingleType {
+  collectionName: 'page_nos_collections';
+  info: {
+    singularName: 'page-nos-collection';
+    pluralName: 'page-nos-collections';
+    displayName: 'Page - Nos collections';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<'Nos collections'>;
+    content: Attribute.DynamicZone<
+      [
+        'blocks.appointment-section',
+        'blocks.articles-section',
+        'blocks.benefits-section',
+        'blocks.blue-header-section',
+        'blocks.brands-section',
+        'blocks.categories-section',
+        'blocks.comparator-section',
+        'blocks.concept-section',
+        'blocks.control-points-section',
+        'blocks.google-reviews-section',
+        'blocks.header-faded-images',
+        'blocks.header-numeroted-cards',
+        'blocks.images-cloud-section',
+        'blocks.map-section',
+        'blocks.numbered-cards-section',
+        'blocks.partners-section',
+        'blocks.pricing-section',
+        'blocks.products-slider',
+        'blocks.questions-section',
+        'blocks.recommanded-articles',
+        'blocks.reviews-section',
+        'blocks.rich-text-section',
+        'blocks.squares-cloud-section',
+        'blocks.stocks-section',
+        'blocks.team-slider',
+        'blocks.three-cards-section',
+        'blocks.title-description-image-section',
+        'blocks.video-section',
+        'components.image-section'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::page-nos-collection.page-nos-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::page-nos-collection.page-nos-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::page-nos-collection.page-nos-collection',
+      'oneToMany',
+      'api::page-nos-collection.page-nos-collection'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
@@ -1633,7 +1798,7 @@ export interface ApiProductProduct extends Schema.SingleType {
   info: {
     singularName: 'product';
     pluralName: 'products';
-    displayName: 'Product';
+    displayName: 'Page - Produit';
     description: '';
   };
   options: {
@@ -1824,6 +1989,8 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::message-banner.message-banner': ApiMessageBannerMessageBanner;
       'api::page.page': ApiPagePage;
+      'api::page-collection.page-collection': ApiPageCollectionPageCollection;
+      'api::page-nos-collection.page-nos-collection': ApiPageNosCollectionPageNosCollection;
       'api::partner.partner': ApiPartnerPartner;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;

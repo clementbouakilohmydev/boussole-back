@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "carts",
+  "collectionName": "page_nos_collections",
   "info": {
-    "singularName": "cart",
-    "pluralName": "carts",
-    "displayName": "Page - Panier",
-    "description": ""
+    "singularName": "page-nos-collection",
+    "pluralName": "page-nos-collections",
+    "displayName": "Page - Nos collections"
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +15,16 @@
     }
   },
   "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true,
+      "default": "Nos collections"
+    },
     "content": {
       "pluginOptions": {
         "i18n": {
@@ -28,6 +37,7 @@
         "blocks.articles-section",
         "blocks.benefits-section",
         "blocks.blue-header-section",
+        "blocks.brands-section",
         "blocks.categories-section",
         "blocks.comparator-section",
         "blocks.concept-section",
@@ -52,8 +62,7 @@
         "blocks.title-description-image-section",
         "blocks.video-section",
         "components.image-section"
-      ],
-      "required": false
+      ]
     }
   }
 }
