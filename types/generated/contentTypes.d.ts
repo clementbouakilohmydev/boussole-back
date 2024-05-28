@@ -1708,6 +1708,83 @@ export interface ApiPageNosCollectionPageNosCollection
   };
 }
 
+export interface ApiPagesComptePagesCompte extends Schema.SingleType {
+  collectionName: 'pages_comptes';
+  info: {
+    singularName: 'pages-compte';
+    pluralName: 'pages-comptes';
+    displayName: 'Pages - Compte';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.DynamicZone<
+      [
+        'blocks.appointment-section',
+        'blocks.articles-section',
+        'blocks.benefits-section',
+        'blocks.blue-header-section',
+        'blocks.categories-section',
+        'blocks.comparator-section',
+        'blocks.concept-section',
+        'blocks.control-points-section',
+        'blocks.google-reviews-section',
+        'blocks.header-faded-images',
+        'blocks.header-numeroted-cards',
+        'blocks.images-cloud-section',
+        'blocks.map-section',
+        'blocks.numbered-cards-section',
+        'blocks.partners-section',
+        'blocks.pricing-section',
+        'blocks.products-slider',
+        'blocks.questions-section',
+        'blocks.recommanded-articles',
+        'blocks.reviews-section',
+        'blocks.rich-text-section',
+        'blocks.squares-cloud-section',
+        'blocks.stocks-section',
+        'blocks.team-slider',
+        'blocks.three-cards-section',
+        'blocks.title-description-image-section',
+        'blocks.video-section'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pages-compte.pages-compte',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pages-compte.pages-compte',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::pages-compte.pages-compte',
+      'oneToMany',
+      'api::pages-compte.pages-compte'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiPartnerPartner extends Schema.CollectionType {
   collectionName: 'partners';
   info: {
@@ -1991,6 +2068,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::page-collection.page-collection': ApiPageCollectionPageCollection;
       'api::page-nos-collection.page-nos-collection': ApiPageNosCollectionPageNosCollection;
+      'api::pages-compte.pages-compte': ApiPagesComptePagesCompte;
       'api::partner.partner': ApiPartnerPartner;
       'api::pricing.pricing': ApiPricingPricing;
       'api::product.product': ApiProductProduct;
