@@ -1505,7 +1505,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'blocks.video-section',
         'components.button',
         'components.image-section',
-        'blocks.recommanded-articles'
+        'blocks.recommanded-articles',
+        'blocks.contact-section'
       ]
     > &
       Attribute.Required &
