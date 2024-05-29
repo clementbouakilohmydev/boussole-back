@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_blocks_contact_sections",
+  "info": {
+    "displayName": "ContactSection",
+    "icon": "paperPlane"
+  },
+  "options": {},
+  "attributes": {
+    "Contact": {
+      "type": "string",
+      "required": true,
+      "default": "title"
+    }
+  }
+}

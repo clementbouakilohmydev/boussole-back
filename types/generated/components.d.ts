@@ -146,6 +146,19 @@ export interface BlocksConceptSection extends Schema.Component {
   };
 }
 
+export interface BlocksContactSection extends Schema.Component {
+  collectionName: 'components_blocks_contact_sections';
+  info: {
+    displayName: 'ContactSection';
+    icon: 'paperPlane';
+  };
+  attributes: {
+    Contact: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'title'>;
+  };
+}
+
 export interface BlocksControlPointsSection extends Schema.Component {
   collectionName: 'components_blocks_control_points_sections';
   info: {
@@ -671,6 +684,7 @@ declare module '@strapi/types' {
       'blocks.categories-section': BlocksCategoriesSection;
       'blocks.comparator-section': BlocksComparatorSection;
       'blocks.concept-section': BlocksConceptSection;
+      'blocks.contact-section': BlocksContactSection;
       'blocks.control-points-section': BlocksControlPointsSection;
       'blocks.google-reviews-section': BlocksGoogleReviewsSection;
       'blocks.header-faded-images': BlocksHeaderFadedImages;
