@@ -61,6 +61,7 @@ export interface BlocksBlueHeaderSection extends Schema.Component {
   collectionName: 'components_blocks_blue_header_sections';
   info: {
     displayName: 'BlueHeaderSection';
+    description: '';
   };
   attributes: {
     title: Attribute.String &
@@ -72,6 +73,7 @@ export interface BlocksBlueHeaderSection extends Schema.Component {
     button: Attribute.Component<'components.button'>;
     image: Attribute.Component<'components.image-section'> & Attribute.Required;
     sticker: Attribute.Component<'components.image-section'>;
+    withContactForm: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 

@@ -52,8 +52,7 @@
         "blocks.video-section",
         "components.button",
         "components.image-section",
-        "blocks.recommanded-articles",
-        "blocks.contact-section"
+        "blocks.recommanded-articles"
       ],
       "required": true
     },

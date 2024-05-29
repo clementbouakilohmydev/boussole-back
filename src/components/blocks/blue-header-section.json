@@ -1,7 +1,8 @@
 {
   "collectionName": "components_blocks_blue_header_sections",
   "info": {
-    "displayName": "BlueHeaderSection"
+    "displayName": "BlueHeaderSection",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -30,6 +31,11 @@
       "type": "component",
       "repeatable": false,
       "component": "components.image-section"
+    },
+    "withContactForm": {
+      "type": "boolean",
+      "default": false,
+      "required": false
     }
   }
 }
