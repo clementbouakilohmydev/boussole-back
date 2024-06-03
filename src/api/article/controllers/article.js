@@ -60,7 +60,7 @@ async function getCollection(id) {
 
 module.exports = createCoreController("api::article.article", () => ({
   async find(ctx) {
-    const { data } = await super.find(ctx);
+    const { data, meta } = await super.find(ctx);
 
     const res = await Promise.all(
       data.map(async (item) => {
@@ -93,6 +93,9 @@ module.exports = createCoreController("api::article.article", () => ({
       })
     );
 
-    return res;
+    return {
+      articles: res,
+      meta,
+    };
   },
 }));
