@@ -72,30 +72,33 @@ module.exports = createCoreController("api::cart.cart", () => ({
   async find(ctx) {
     const response = await super.find(ctx);
 
-    const content = await Promise.all(
-      response.data.attributes.content.map(
-        async (
-          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
-        ) => {
-          if (
-            section.__component === "blocks.products-slider" &&
-            section?.collection?.data?.attributes?.shopifyID
-          ) {
-            const id = section.collection.data.attributes.shopifyID;
-            const shopify = await getCollection(id);
-            return {
-              ...section,
-              products: shopify?.collection?.products || [],
-            };
-          }
+    const content =
+      (response?.data?.attributes?.content || []).length > 0
+        ? await Promise.all(
+            response.data.attributes.content.map(
+              async (
+                /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
+              ) => {
+                if (
+                  section.__component === "blocks.products-slider" &&
+                  section?.collection?.data?.attributes?.shopifyID
+                ) {
+                  const id = section.collection.data.attributes.shopifyID;
+                  const shopify = await getCollection(id);
+                  return {
+                    ...section,
+                    products: shopify?.collection?.products || [],
+                  };
+                }
 
-          return section;
-        }
-      )
-    );
+                return section;
+              }
+            )
+          )
+        : [];
 
     return {
-      ...response.data.attributes,
+      ...(response?.data?.attributes || {}),
       content,
     };
   },

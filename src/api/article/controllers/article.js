@@ -72,36 +72,43 @@ module.exports = createCoreController("api::article.article", () => ({
   async find(ctx) {
     const { data, meta } = await super.find(ctx);
 
-    const res = await Promise.all(
-      data.map(async (item) => {
-        const content = await Promise.all(
-          item.attributes.content.map(
-            async (
-              /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
-            ) => {
-              if (
-                section.__component === "blocks.products-slider" &&
-                section?.collection?.data?.attributes?.shopifyID
-              ) {
-                const id = section.collection.data.attributes.shopifyID;
-                const shopify = await getCollection(id);
-                return {
-                  ...section,
-                  products: shopify?.collection?.products || [],
-                };
-              }
+    const res =
+      data.length > 0
+        ? await Promise.all(
+            data.map(async (item) => {
+              const content =
+                item?.attributes?.content && item.attributes.content.length > 0
+                  ? await Promise.all(
+                      item.attributes.content.map(
+                        async (
+                          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; }} */ section
+                        ) => {
+                          if (
+                            section.__component === "blocks.products-slider" &&
+                            section?.collection?.data?.attributes?.shopifyID
+                          ) {
+                            const id =
+                              section.collection.data.attributes.shopifyID;
+                            const shopify = await getCollection(id);
+                            return {
+                              ...section,
+                              products: shopify?.collection?.products || [],
+                            };
+                          }
 
-              return section;
-            }
+                          return section;
+                        }
+                      )
+                    )
+                  : [];
+
+              return {
+                ...(item?.attributes || {}),
+                content,
+              };
+            })
           )
-        );
-
-        return {
-          ...item.attributes,
-          content,
-        };
-      })
-    );
+        : [];
 
     return {
       articles: res,

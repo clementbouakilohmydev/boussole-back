@@ -101,52 +101,56 @@ module.exports = createCoreController("api::page.page", () => ({
 
     const item = data[0];
 
-    const content = await Promise.all(
-      item.attributes.content.map(
-        async (
-          /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; collections: any; }} */ section
-        ) => {
-          if (
-            section.__component === "blocks.products-slider" &&
-            section?.collection?.data?.attributes?.shopifyID
-          ) {
-            const id = section.collection.data.attributes.shopifyID;
-            const shopify = await getCollection(id);
-            return {
-              ...section,
-              products: shopify?.collection?.products || [],
-            };
-          }
+    const content =
+      item?.attributes?.content && item.attributes.content.length > 0
+        ? await Promise.all(
+            item.attributes.content.map(
+              async (
+                /** @type {{ __component: string; collection: { data: { attributes: { shopifyID: any; }; }; }; collections: any; }} */ section
+              ) => {
+                if (
+                  section.__component === "blocks.products-slider" &&
+                  section?.collection?.data?.attributes?.shopifyID
+                ) {
+                  const id = section.collection.data.attributes.shopifyID;
+                  const shopify = await getCollection(id);
+                  return {
+                    ...section,
+                    products: shopify?.collection?.products || [],
+                  };
+                }
 
-          if (
-            section.__component === "blocks.brands-section" &&
-            (section?.collections?.data || []).length > 0
-          ) {
-            const res = await Promise.all(
-              section.collections.data.map(async (collection) => {
-                const id = collection?.attributes?.shopifyID;
-                const shopify = await getBrandCollection(id);
-                return {
-                  ...collection,
-                  productsLength: (shopify?.collection?.products?.edges || [])
-                    .length,
-                };
-              })
-            );
+                if (
+                  section.__component === "blocks.brands-section" &&
+                  (section?.collections?.data || []).length > 0
+                ) {
+                  const res = await Promise.all(
+                    section.collections.data.map(async (collection) => {
+                      const id = collection?.attributes?.shopifyID;
+                      const shopify = await getBrandCollection(id);
+                      return {
+                        ...collection,
+                        productsLength: (
+                          shopify?.collection?.products?.edges || []
+                        ).length,
+                      };
+                    })
+                  );
 
-            return {
-              ...section,
-              collections: { data: res },
-            };
-          }
+                  return {
+                    ...section,
+                    collections: { data: res },
+                  };
+                }
 
-          return section;
-        }
-      )
-    );
+                return section;
+              }
+            )
+          )
+        : [];
 
     return {
-      ...item.attributes,
+      ...(item?.attributes || {}),
       content,
     };
   },
