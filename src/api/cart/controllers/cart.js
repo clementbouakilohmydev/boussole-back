@@ -35,11 +35,21 @@ const productsSliderQuery = `
           compareAtPriceRange {
             maxVariantPrice {
               amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
             }
           }
           priceRange {
             maxVariantPrice {
               amount
+              currencyCode
+            }
+            minVariantPrice {
+              amount
+              currencyCode
             }
           }
         }
