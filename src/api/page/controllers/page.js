@@ -152,7 +152,6 @@ module.exports = createCoreController("api::page.page", () => ({
     return {
       ...(item?.attributes || {}),
       content,
-      data,
     };
   },
 }));
