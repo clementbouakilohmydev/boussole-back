@@ -99,7 +99,7 @@ module.exports = createCoreController("api::page.page", () => ({
   async find(ctx) {
     const { data } = await super.find(ctx);
 
-    const item = data[0];
+    const item = data?.[0];
 
     const content =
       item?.attributes?.content && item.attributes.content.length > 0
@@ -113,7 +113,7 @@ module.exports = createCoreController("api::page.page", () => ({
                   section?.collection?.data?.attributes?.shopifyID
                 ) {
                   const id = section.collection.data.attributes.shopifyID;
-                  const shopify = await getCollection(id);
+                  const shopify = id ? await getCollection(id) : null;
                   return {
                     ...section,
                     products: shopify?.collection?.products || [],
@@ -127,7 +127,7 @@ module.exports = createCoreController("api::page.page", () => ({
                   const res = await Promise.all(
                     section.collections.data.map(async (collection) => {
                       const id = collection?.attributes?.shopifyID;
-                      const shopify = await getBrandCollection(id);
+                      const shopify = id ? await getBrandCollection(id) : null;
                       return {
                         ...collection,
                         productsLength: (
