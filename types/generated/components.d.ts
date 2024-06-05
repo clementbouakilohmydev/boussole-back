@@ -175,9 +175,6 @@ export interface BlocksControlPointsSection extends Schema.Component {
       Attribute.DefaultTo<'Chez Boussole, chaque v\u00E9lo est minutieusement scrut\u00E9 par nos m\u00E9caniciens \uD83E\uDDD0Pas moins de 30 points de contr\u00F4le\u00A0doivent \u00EAtre pass\u00E9s avec succ\u00E8s pour qu\u2019un v\u00E9lo sorte de notre atelier pour de nouvelles aventures !'>;
     image: Attribute.Component<'components.image-section'>;
     button: Attribute.Component<'components.button'>;
-    controlDescription: Attribute.Text &
-      Attribute.Required &
-      Attribute.DefaultTo<"M\u00E9canicien pr\u00E9cis portant une attention aux d\u00E9tails qui font la diff, Fran\u00E7ois est un v\u00E9ritable maestro de la cl\u00E9 \u00E0 molette. Berc\u00E9 par les beats envo\u00FBtants de la web radio anglaise NTS, il s'attache \u00E0 reconditionner tous type de v\u00E9los pour les remettre en circulation et leur faire vivre de nouvelles aventures \u00E0 vos c\u00F4t\u00E9s.">;
   };
 }
 
