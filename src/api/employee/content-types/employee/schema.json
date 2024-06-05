@@ -65,6 +65,15 @@
       ],
       "required": true,
       "default": "bleu"
+    },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

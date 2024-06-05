@@ -1257,6 +1257,12 @@ export interface ApiEmployeeEmployee extends Schema.CollectionType {
         };
       }> &
       Attribute.DefaultTo<'bleu'>;
+    slug: Attribute.UID<'api::employee.employee', 'name'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -2054,6 +2060,11 @@ export interface ApiProductProduct extends Schema.SingleType {
         },
         number
       >;
+    employees: Attribute.Relation<
+      'api::product.product',
+      'oneToMany',
+      'api::employee.employee'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
