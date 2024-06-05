@@ -29,11 +29,6 @@
       "type": "text",
       "default": "Mécanicien précis portant une attention aux détails qui font la diff, François est un véritable maestro de la clé à molette. Bercé par les beats envoûtants de la web radio anglaise NTS, il s'attache à reconditionner tous type de vélos pour les remettre en circulation et leur faire vivre de nouvelles aventures à vos côtés.",
       "required": true
-    },
-    "points": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::control-point.control-point"
     }
   }
 }

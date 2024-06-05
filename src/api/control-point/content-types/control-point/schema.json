@@ -4,7 +4,8 @@
   "info": {
     "singularName": "control-point",
     "pluralName": "control-points",
-    "displayName": "ControlPoint"
+    "displayName": "ControlPoint",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,16 @@
         }
       },
       "type": "string",
+      "required": true
+    },
+    "isElectric": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "boolean",
+      "default": false,
       "required": true
     }
   }

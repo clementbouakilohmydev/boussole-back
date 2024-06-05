@@ -142,6 +142,16 @@
       "type": "string",
       "default": "9h30 à 18h30",
       "required": true
+    },
+    "google_reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::google-review.google-review"
+    },
+    "control_points": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::control-point.control-point"
     }
   }
 }

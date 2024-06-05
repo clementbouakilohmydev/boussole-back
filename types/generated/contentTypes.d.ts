@@ -1155,6 +1155,7 @@ export interface ApiControlPointControlPoint extends Schema.CollectionType {
     singularName: 'control-point';
     pluralName: 'control-points';
     displayName: 'ControlPoint';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1172,6 +1173,14 @@ export interface ApiControlPointControlPoint extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    isElectric: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1387,6 +1396,16 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
         };
       }> &
       Attribute.DefaultTo<'9h30 \u00E0 18h30'>;
+    google_reviews: Attribute.Relation<
+      'api::global.global',
+      'oneToMany',
+      'api::google-review.google-review'
+    >;
+    control_points: Attribute.Relation<
+      'api::global.global',
+      'oneToMany',
+      'api::control-point.control-point'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1406,6 +1425,81 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
       'api::global.global',
       'oneToMany',
       'api::global.global'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiGoogleReviewGoogleReview extends Schema.CollectionType {
+  collectionName: 'google_reviews';
+  info: {
+    singularName: 'google-review';
+    pluralName: 'google-reviews';
+    displayName: 'GoogleReviews';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    content: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    rate: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<5>;
+    date: Attribute.Date &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    author_name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    author_avatar: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::google-review.google-review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::google-review.google-review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::google-review.google-review',
+      'oneToMany',
+      'api::google-review.google-review'
     >;
     locale: Attribute.String;
   };
@@ -2064,6 +2158,7 @@ declare module '@strapi/types' {
       'api::control-point.control-point': ApiControlPointControlPoint;
       'api::employee.employee': ApiEmployeeEmployee;
       'api::global.global': ApiGlobalGlobal;
+      'api::google-review.google-review': ApiGoogleReviewGoogleReview;
       'api::message-banner.message-banner': ApiMessageBannerMessageBanner;
       'api::page.page': ApiPagePage;
       'api::page-collection.page-collection': ApiPageCollectionPageCollection;
