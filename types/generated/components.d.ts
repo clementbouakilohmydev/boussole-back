@@ -173,7 +173,6 @@ export interface BlocksControlPointsSection extends Schema.Component {
       Attribute.DefaultTo<'Reconditionn\u00E9 et test\u00E9 sur 30 points de contr\u00F4les par Fran\u00E7ois'>;
     description: Attribute.Text &
       Attribute.DefaultTo<'Chez Boussole, chaque v\u00E9lo est minutieusement scrut\u00E9 par nos m\u00E9caniciens \uD83E\uDDD0Pas moins de 30 points de contr\u00F4le\u00A0doivent \u00EAtre pass\u00E9s avec succ\u00E8s pour qu\u2019un v\u00E9lo sorte de notre atelier pour de nouvelles aventures !'>;
-    image: Attribute.Component<'components.image-section'>;
     button: Attribute.Component<'components.button'>;
   };
 }

@@ -15,11 +15,6 @@
       "type": "text",
       "default": "Chez Boussole, chaque vélo est minutieusement scruté par nos mécaniciens 🧐Pas moins de 30 points de contrôle doivent être passés avec succès pour qu’un vélo sorte de notre atelier pour de nouvelles aventures !"
     },
-    "image": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.image-section"
-    },
     "button": {
       "type": "component",
       "repeatable": false,
