@@ -4,7 +4,8 @@
   "info": {
     "singularName": "message-banner",
     "pluralName": "message-banners",
-    "displayName": "MessageBanner"
+    "displayName": "MessageBanner",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,6 +24,14 @@
       },
       "type": "string",
       "required": true
+    },
+    "url": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }
