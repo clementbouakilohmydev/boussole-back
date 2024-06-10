@@ -1541,6 +1541,11 @@ export interface ApiMessageBannerMessageBanner extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    page: Attribute.Relation<
+      'api::message-banner.message-banner',
+      'oneToOne',
+      'api::page.page'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
